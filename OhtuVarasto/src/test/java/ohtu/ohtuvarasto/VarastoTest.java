@@ -83,10 +83,9 @@ public class VarastoTest {
     }
     @Test
     public void liikaaOttaminen() {
-        double saldoAlussa=varasto.getSaldo();
         double maara=varasto.otaVarastosta(20);
+        assertEquals(10.0,maara,vertailuTarkkuus);
         assertEquals(0.0,varasto.getSaldo(), vertailuTarkkuus);
-        assertEquals(saldoAlussa,maara,vertailuTarkkuus);
     }
         @Test
     public void negatiivinenLisaaminen() {
@@ -97,7 +96,7 @@ public class VarastoTest {
     @Test
     public void liikaaLisaaminen() {
         varasto.otaVarastosta(varasto.getTilavuus());
-        varasto.lisaaVarastoon(varasto.getTilavuus()*2);
+        varasto.lisaaVarastoon(0);//varasto.getTilavuus()*2);
         assertEquals(varasto.getTilavuus(),varasto.getSaldo(),vertailuTarkkuus);
     }
 }
