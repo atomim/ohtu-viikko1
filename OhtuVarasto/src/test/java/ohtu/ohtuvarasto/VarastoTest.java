@@ -95,7 +95,8 @@ public class VarastoTest {
     }
     @Test
     public void liikaaLisaaminen() {
-        varasto.lisaaVarastoon(varasto.getTilavuus()*2);
+        varasto.otaVarastosta(varasto.getTilavuus());
+        varasto.lisaaVarastoon(0);//varasto.getTilavuus()*2);
         assertEquals(varasto.getTilavuus(),varasto.getSaldo(),vertailuTarkkuus);
     }
 }
